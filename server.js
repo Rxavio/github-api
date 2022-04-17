@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const dotenv = require('dotenv');
+dotenv.config();
 
-
+const api = require('./routes/api');
 
 const cors = require('cors');
 
@@ -17,11 +19,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-
+app.use('/api', api);
 app.get('/', function (req, res) {
     res.send('Server is up and running!');
 })
-
-app.listen(3000, function () {
-    console.log('Server is listening on 3000');
-})
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, console.log(`server run on port ${PORT}`));
