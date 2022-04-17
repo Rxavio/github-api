@@ -22,7 +22,6 @@ app.get('/', function (req, res) {
     res.send('Server is up and running!');
 })
 
-// replace 3000 with (process.env.PORT)
 app.listen(3000, function () {
     console.log('Server is listening on 3000');
 })
